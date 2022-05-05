@@ -33,19 +33,19 @@ void main(void)
 	int16_t i,j,k;
 	uint8_t led_r,led_g,led_b;
 
-    // initialize the device
-    SYSTEM_Initialize();
-    TMR0_SetInterruptHandler(one_ms_interrupt);
+	// initialize the device
+	SYSTEM_Initialize();
+	TMR0_SetInterruptHandler(one_ms_interrupt);
 
-    // Enable the Global Interrupts
-    INTERRUPT_GlobalInterruptEnable();
+	// Enable the Global Interrupts
+	INTERRUPT_GlobalInterruptEnable();
 
-    // Enable the Peripheral Interrupts
-    INTERRUPT_PeripheralInterruptEnable();
+	// Enable the Peripheral Interrupts
+	INTERRUPT_PeripheralInterruptEnable();
 
 	CPUDOZE=0x80; // Idle Enable
 
-    while (1){
+	while (1){
 		//x位置からLED上の位置を計算（下位8ビットは小数点以下）
 		if(x>=0) i=(x>>8)%LED_NUM;
 		else{
