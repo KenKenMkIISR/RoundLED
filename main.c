@@ -15,11 +15,11 @@
 #define SPRING_CONST 1/9000 //バネ定数
 #define X0 ((int32_t)LED_NUM*10*256) //初期位置
 
-volatile uint8_t delaycounter=0;
+volatile uint16_t delaycounter=0;
 void one_ms_interrupt(void){
 	delaycounter++;
 }
-void delayms(uint8_t t){
+void delayms(uint16_t t){
 	while(delaycounter<t)
 		asm("SLEEP"); // Go to Idle mode
 	delaycounter=0;
